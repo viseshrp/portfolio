@@ -1,0 +1,1 @@
+web: gunicorn portfolio.wsgi --workers 3 --timeout 25 --log-level debug --preload --log-file -
