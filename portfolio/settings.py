@@ -180,3 +180,6 @@ if int(os.environ['DJANGO_SECURED']) == 1:
     # you should change it to 'DENY
     # prevents clickjacking
     X_FRAME_OPTIONS = 'DENY'
+
+# auth user
+AUTH_USER_MODEL = 'home.CustomUser'
