@@ -1,0 +1,21 @@
+FROM python:3.7.1
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    build-essential libssl-dev libffi-dev \
+    postgresql-client libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3.7 install --no-cache-dir --upgrade pip
+
+# to show docker logs properly
+ENV PYTHONUNBUFFERED 1
+
+RUN mkdir /code
+WORKDIR /code
+
+COPY requirements-dev.txt /code/
+
+RUN pip3.7 install --no-cache-dir -r requirements-dev.txt
+
+COPY . /code
