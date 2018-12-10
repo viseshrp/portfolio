@@ -1,7 +1,7 @@
 /* Typography */
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Google Sans', sans-serif;
 }
 
 @media (min-width: 576px) {
@@ -44,7 +44,6 @@ main {
 }
 
 main > .intro {
-    font-family: 'Reem Kufi', sans-serif;
     font-size: 3.75em;
     font-weight: 600;
 }
