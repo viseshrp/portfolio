@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visesh Prasad | Full-Stack Engineer</title>
+
+    <link rel="shortcut icon" href="{% static 'home/img/favicon.png' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+          integrity="sha256-c+C87jupO1otD1I5uyxV68WmSLCqtIoNlcHLXtzLCT0=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'home/css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/themes/white-grey.css' %}">
 </head>
 <body>
-
+<main>
+    <div class="intro bounce">Hello! This is Visesh.</div>
+    <div class="tagline stretchRight">Full-Stack Engineer | DevOps Enthusiast | Pythonista</div>
+    <div class="icons-social slideExpandUp">
+        <a target="_blank" class="hvr-bounce-out" href="https://github.com/viseshrp"><i class="fab fa-github"></i></a>
+        <a target="_blank" class="hvr-wobble-vertical" href="https://www.linkedin.com/in/viseshprasad"><i
+                class="fab fa-linkedin"></i></a>
+        <a target="_blank" class="hvr-buzz"
+           href="https://drive.google.com/file/d/0B6KvjIoOCo4denFodnh2akItZFU/view?usp=sharing"><i
+                class="far fa-file"></i></a>
+    </div>
+</main>
 </body>
 </html>
