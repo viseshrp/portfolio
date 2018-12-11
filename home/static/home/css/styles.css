@@ -57,3 +57,9 @@ main > .tagline {
 .icons-social i {
     padding: 10px;
 }
+
+main > .notice {
+    display: flex;
+    justify-content: center;
+    /*todo: bottom alignment: align-self: flex-end;*/
+}
