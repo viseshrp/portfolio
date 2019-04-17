@@ -1,17 +1,17 @@
 # requirements file for use with Docker for local dev.
 
 # Django
-Django==2.1.4
-djangorestframework==3.9.0
+Django==2.2
+djangorestframework==3.9.2
 
 # Gunicorn app server
 gunicorn==19.9.0
 
 # db
-psycopg2-binary==2.7.6.1
+psycopg2-binary==2.8.2
 
 # misc
-requests==2.20.1
+requests==2.21.0
 
 # whitenoise
 whitenoise==4.1.2
