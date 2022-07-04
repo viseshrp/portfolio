@@ -3,8 +3,8 @@ services:
   portfolio:
     build:
       context: .
-      dockerfile: Dockerfile-dev
-    command: python manage.py runserver 0.0.0.0:8000
+      dockerfile: Dockerfile
+    command: gunicorn portfolio.wsgi:application -c gunicorn.conf.py
     volumes:
       - .:/code
     env_file: portfolio.env

@@ -5,8 +5,5 @@ djangorestframework>=3.13.1
 # Gunicorn app server
 gunicorn>=20.1.0
 
-# db
-psycopg[binary]>=3.0.15
-
 # whitenoise
 whitenoise>=6.2.0
