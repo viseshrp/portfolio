@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: gunicorn portfolio.wsgi:application -c gunicorn.conf.py
+    command: bash -c "python manage.py collectstatic --no-input --clear && gunicorn portfolio.wsgi:application -c gunicorn.conf.py"
     volumes:
       - .:/code
     env_file: portfolio.env
