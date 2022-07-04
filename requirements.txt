@@ -1,6 +1,7 @@
 # Django
 Django>=4.0.5
 djangorestframework>=3.13.1
+django-environ>=0.9.0
 
 # Gunicorn app server
 gunicorn>=20.1.0

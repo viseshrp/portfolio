@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import environ
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+env = environ.Env()
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.environ['DEBUG'] == 'True' else False
+DEBUG = env.bool("DEBUG", False)
 
-ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Application definition
 
@@ -38,8 +41,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -131,10 +132,10 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # EMAIL SETTINGS
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ['EMAIL_HOST']
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_PORT = os.environ['EMAIL_PORT']
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = None
 EMAIL_SUBJECT_PREFIX = '[Portfolio-contact] '
@@ -143,7 +144,7 @@ SERVER_EMAIL = 'me@viseshprasad.com'
 DEFAULT_FROM_EMAIL = 'no-reply@viseshprasad.com'
 
 # Admins
-ADMINS = [('Contact', os.environ['CONTACT_EMAIL'])]
+ADMINS = [('Contact', env('CONTACT_EMAIL'))]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -159,7 +160,7 @@ AUTH_USER_MODEL = 'home.CustomUser'
 
 # ---Security settings----
 # disabled for dev through Docker.
-DJANGO_SECURED = True if os.environ['DJANGO_SECURED'] == 'True' else False
+DJANGO_SECURED = env.bool("DJANGO_SECURED", default=False)
 if DJANGO_SECURED:
     # redirects all non-HTTPS requests to HTTPS
     SECURE_SSL_REDIRECT = True
