@@ -1,4 +1,4 @@
-FROM python:3.7.1
+FROM python:3.10
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -6,7 +6,7 @@ RUN apt-get update \
     postgresql-client libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3.7 install --no-cache-dir --upgrade pip
+RUN pip3.10 install --no-cache-dir --upgrade pip
 
 # to show docker logs properly
 ENV PYTHONUNBUFFERED 1
@@ -14,8 +14,8 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 
-COPY requirements-dev.txt /code/
+COPY requirements.txt /code/
 
-RUN pip3.7 install --no-cache-dir -r requirements-dev.txt
+RUN pip3.10 install --no-cache-dir -r requirements.txt
 
 COPY . /code
