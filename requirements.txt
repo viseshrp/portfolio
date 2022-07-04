@@ -1,23 +1,12 @@
-# requirements file for use in production
-
 # Django
-Django==2.2
-djangorestframework==3.9.2
+Django>=4.0.5
+djangorestframework>=3.13.1
 
 # Gunicorn app server
-gunicorn==19.9.0
+gunicorn>=20.1.0
 
 # db
-psycopg2-binary==2.8.2
-
-# misc
-requests==2.21.0
+psycopg[binary]>=3.0.15
 
 # whitenoise
-whitenoise==4.1.2
-
-# queryfields
-djangorestframework-queryfields==1.0.0
-
-# django-filter
-django-filter==2.0.0
+whitenoise>=6.2.0

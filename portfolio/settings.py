@@ -158,21 +158,22 @@ REST_FRAMEWORK = {
     )
 }
 
+# auth user
+AUTH_USER_MODEL = 'home.CustomUser'
+
 # ---Security settings----
 # disabled for dev through Docker.
-if int(os.environ['DJANGO_SECURED']) == 1:
+DJANGO_SECURED = True if os.environ['DJANGO_SECURED'] == 'True' else False
+if DJANGO_SECURED:
     # redirects all non-HTTPS requests to HTTPS
     SECURE_SSL_REDIRECT = True
-
     # avoid transmitting the CSRF cookie over HTTP accidentally.
     CSRF_COOKIE_SECURE = True
-
     # Whether to use a secure cookie for the session cookie.
     # If this is set to True, the cookie will be marked as “secure,”
     # which means browsers may ensure that the cookie is only sent
     # under an HTTPS connection.
     SESSION_COOKIE_SECURE = True
-
     # pages will not be served with an 'x-xss-protection: 1; mode=block' header.
     # Enable this header to activate the browser's XSS filtering and help prevent XSS attacks.
     SECURE_BROWSER_XSS_FILTER = True
@@ -180,6 +181,3 @@ if int(os.environ['DJANGO_SECURED']) == 1:
     # you should change it to 'DENY
     # prevents clickjacking
     X_FRAME_OPTIONS = 'DENY'
-
-# auth user
-AUTH_USER_MODEL = 'home.CustomUser'
