@@ -108,3 +108,6 @@ venv.bak/
 *.tar
 .DS_Store
 heroku-config.py
+
+# django
+staticfiles/
